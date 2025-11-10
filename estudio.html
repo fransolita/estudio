@@ -1,0 +1,2539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Estudio - Booksy App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #f8f9fa;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #1976D2;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 600;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background: #1976D2;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #1976D2;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1976D2;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #f8f9fa 0%, transparent 100%);
+            padding: 15px;
+            border-left: 5px solid #1976D2;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .vicente {
+            border-left: 5px solid #4CAF50;
+            background: #e8f5e9;
+        }
+
+        .oscar {
+            border-left: 5px solid #FF9800;
+            background: #fff3e0;
+        }
+
+        .trap {
+            border-left: 5px solid #f44336;
+            background: #ffebee;
+        }
+
+        .success {
+            border-left: 5px solid #2196F3;
+            background: #e3f2fd;
+        }
+
+        pre {
+            background: #263238;
+            color: #aed581;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        code {
+            background: #263238;
+            color: #aed581;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .badge-vicente {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .badge-oscar {
+            background: #FF9800;
+            color: white;
+        }
+
+        .badge-critico {
+            background: #f44336;
+            color: white;
+        }
+
+        .badge-importante {
+            background: #FFC107;
+            color: black;
+        }
+
+        .flow-diagram {
+            background: white;
+            border: 2px solid #1976D2;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: monospace;
+            line-height: 2;
+        }
+
+        .arrow {
+            color: #1976D2;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .question {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .answer {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .wrong-answer {
+            background: #ffebee;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #f44336;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #1976D2;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            font-size: 1.5em;
+            color: #1976D2;
+            margin-right: 10px;
+        }
+
+        .tip {
+            background: #fff9c4;
+            border-left: 5px solid #FFC107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info {
+            background: #e3f2fd;
+            border-left: 5px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: #263238;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav a {
+                text-align: center;
+            }
+        }
+
+        .print-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            margin: 20px;
+        }
+
+        .print-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        @media print {
+            nav, .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Guía de Estudio - Booksy App</h1>
+            <p>Preparación completa para la defensa del proyecto</p>
+            <p><small>Vicente & Oscar - Desarrollo Móvil 2025</small></p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#intro">🎯 Introducción</a></li>
+                <li><a href="#arquitectura">🏗️ Arquitectura</a></li>
+                <li><a href="#vicente">🟢 Parte Vicente</a></li>
+                <li><a href="#oscar">🟠 Parte Oscar</a></li>
+                <li><a href="#conceptos">💡 Conceptos Clave</a></li>
+                <li><a href="#trampas">⚠️ Preguntas Trampa</a></li>
+                <li><a href="#simulacion">🎬 Simulación</a></li>
+                <li><a href="#checklist">✅ Checklist</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <!-- INTRODUCCIÓN -->
+            <section id="intro">
+                <h2>🎯 Introducción Rápida</h2>
+                
+                <div class="card success">
+                    <h3>¿Qué es Booksy?</h3>
+                    <p><strong>Respuesta en 30 segundos:</strong></p>
+                    <p>"Es una aplicación Android de catálogo de libros donde los usuarios pueden registrarse, iniciar sesión, ver un catálogo de libros y actualizar su foto de perfil usando la cámara o galería."</p>
+                </div>
+
+                <div class="card">
+                    <h3>Funcionalidades Principales</h3>
+                    <ul>
+                        <li>✅ <strong>Registro de usuarios</strong> con validación en tiempo real</li>
+                        <li>✅ <strong>Inicio de sesión</strong> con persistencia de sesión</li>
+                        <li>✅ <strong>Catálogo de libros</strong> con información detallada</li>
+                        <li>✅ <strong>Perfil de usuario</strong> con foto personalizada</li>
+                        <li>✅ <strong>Cámara y galería</strong> para cambiar foto de perfil</li>
+                        <li>✅ <strong>Cierre de sesión</strong> con limpieza de datos</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Tecnologías Utilizadas</h3>
+                    <table>
+                        <tr>
+                            <th>Tecnología</th>
+                            <th>Propósito</th>
+                        </tr>
+                        <tr>
+                            <td>Kotlin</td>
+                            <td>Lenguaje de programación</td>
+                        </tr>
+                        <tr>
+                            <td>Jetpack Compose</td>
+                            <td>Framework de UI moderno</td>
+                        </tr>
+                        <tr>
+                            <td>Room Database</td>
+                            <td>Persistencia local (SQLite)</td>
+                        </tr>
+                        <tr>
+                            <td>Retrofit</td>
+                            <td>Cliente HTTP para API REST</td>
+                        </tr>
+                        <tr>
+                            <td>Navigation Compose</td>
+                            <td>Navegación entre pantallas</td>
+                        </tr>
+                        <tr>
+                            <td>Coil</td>
+                            <td>Carga de imágenes</td>
+                        </tr>
+                        <tr>
+                            <td>Accompanist Permissions</td>
+                            <td>Manejo de permisos de cámara</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ARQUITECTURA -->
+            <section id="arquitectura">
+                <h2>🏗️ Arquitectura del Proyecto</h2>
+
+                <div class="card">
+                    <h3>Patrón MVVM (Model-View-ViewModel)</h3>
+                    <div class="flow-diagram">
+┌─────────────────────┐<br>
+│   <strong>VIEW (UI)</strong>        │ ← Lo que el usuario VE y toca<br>
+│   LoginScreen.kt    │   (Composables, TextField, Button)<br>
+└──────────┬──────────┘<br>
+           │<br>
+           │ Usuario presiona botón / escribe<br>
+           ↓<br>
+┌─────────────────────┐<br>
+│   <strong>VIEWMODEL</strong>        │ ← La LÓGICA de negocio<br>
+│ LoginViewModel.kt   │   (Validaciones, llamadas API, estado)<br>
+└──────────┬──────────┘<br>
+           │<br>
+           │ Solicita/Guarda datos<br>
+           ↓<br>
+┌─────────────────────┐<br>
+│   <strong>MODEL (Datos)</strong>    │ ← Acceso a DATOS<br>
+│  Room + Retrofit    │   (Base de datos local + API externa)<br>
+└─────────────────────┘
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Estructura de Carpetas</h3>
+                    <pre>
+app/src/main/java/com/booksy/
+├── 📁 data/
+│   ├── 📁 local/          # Room Database
+│   │   ├── UserEntity.kt  # Tabla user
+│   │   ├── UserDao.kt     # Operaciones BD
+│   │   └── AppDatabase.kt # Configuración DB
+│   ├── 📁 remote/         # API REST
+│   │   ├── BooksyApi.kt   # Endpoints
+│   │   └── RetrofitClient.kt # Config Retrofit
+│   └── 📁 models/         # Clases de datos
+│       ├── User.kt
+│       ├── Book.kt
+│       ├── AuthResponse.kt
+│       ├── LoginRequest.kt
+│       └── RegisterRequest.kt
+├── 📁 ui/
+│   ├── 📁 screens/        # Pantallas Compose
+│   │   ├── LoginScreen.kt
+│   │   ├── RegisterScreen.kt
+│   │   ├── HomeScreen.kt
+│   │   └── ProfileScreen.kt
+│   └── 📁 theme/          # Tema visual
+│       ├── Color.kt
+│       ├── Type.kt
+│       └── Theme.kt
+├── 📁 viewmodel/          # Lógica de negocio
+│   ├── LoginViewModel.kt
+│   ├── RegisterViewModel.kt
+│   └── ProfileViewModel.kt
+├── 📁 navigation/         # Navegación
+│   ├── Screen.kt
+│   └── NavGraph.kt
+└── MainActivity.kt        # Actividad principal
+                    </pre>
+                </div>
+
+                <div class="info">
+                    <strong>💡 PREGUNTA CLAVE:</strong> "¿Por qué usar MVVM?"<br>
+                    <strong>RESPUESTA:</strong> "Separa responsabilidades: la UI solo dibuja, el ViewModel maneja lógica, el Model maneja datos. Esto hace el código más organizado, testeable y fácil de mantener."
+                </div>
+            </section>
+
+            <!-- PARTE VICENTE -->
+            <section id="vicente">
+                <h2>🟢 Parte de Vicente</h2>
+                <span class="badge badge-vicente">COMMITS 4, 5, 6, 7, 8, 11, 12</span>
+
+                <div class="card vicente">
+                    <h3>COMMIT 4: Estructura base del proyecto</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Configuraste el proyecto inicial con todas las dependencias necesarias en Gradle.</p>
+                    
+                    <h4>Archivo: build.gradle.kts</h4>
+                    <p><strong>Dependencias agregadas:</strong></p>
+                    <ul>
+                        <li>Jetpack Compose (UI)</li>
+                        <li>Navigation Compose (navegación)</li>
+                        <li>Room Database (persistencia)</li>
+                        <li>Retrofit (API)</li>
+                        <li>Coil (imágenes)</li>
+                        <li>Accompanist Permissions (permisos)</li>
+                    </ul>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Configuré el proyecto con Gradle, agregando todas las dependencias necesarias. Usé KSP en vez de KAPT porque es más moderno y funciona mejor con JDK 17."
+                    </div>
+                </div>
+
+                <div class="card vicente">
+                    <h3>COMMIT 5: Configuré tema de la app</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Creaste el tema visual de la aplicación con colores y estilos consistentes.</p>
+                    
+                    <h4>Archivos creados:</h4>
+                    <ul>
+                        <li><strong>Color.kt:</strong> Paleta de colores (azul primary, gris surface, etc.)</li>
+                        <li><strong>Type.kt:</strong> Tipografía (tamaños de texto)</li>
+                        <li><strong>Theme.kt:</strong> Tema Material 3</li>
+                    </ul>
+
+                    <pre>
+// Color.kt
+val Primary = Color(0xFF1976D2)      // Azul
+val Secondary = Color(0xFF03DAC5)    // Verde agua
+val Background = Color(0xFFFFFBFE)   // Blanco crema</pre>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Creé el tema visual usando Material Design 3. Definí una paleta de colores consistente con azul como color primario y configuré la tipografía para toda la app."
+                    </div>
+                </div>
+
+                <div class="card vicente">
+                    <h3>COMMIT 6: Agregué navegación básica</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Implementaste el sistema de navegación entre pantallas.</p>
+                    
+                    <h4>Archivos creados:</h4>
+                    
+                    <p><strong>Screen.kt:</strong> Define las rutas</p>
+                    <pre>
+sealed class Screen(val route: String) {
+    object Login : Screen("login")
+    object Register : Screen("register")
+    object Home : Screen("home")
+    object Profile : Screen("profile")
+}</pre>
+
+                    <p><strong>NavGraph.kt:</strong> Configura la navegación</p>
+                    <pre>
+NavHost(navController, startDestination = Screen.Login.route) {
+    composable(Screen.Login.route) {
+        LoginScreen(
+            onLoginSuccess = { 
+                navController.navigate(Screen.Home.route) {
+                    popUpTo(Screen.Login.route) { inclusive = true }
+                }
+            }
+        )
+    }
+    // ... más pantallas
+}</pre>
+
+                    <h4>Flujo de navegación:</h4>
+                    <div class="flow-diagram">
+App inicia<br>
+  │<br>
+  ├─ ¿Hay usuario en Room?<br>
+  │   ├─ SÍ → HomeScreen<br>
+  │   └─ NO → LoginScreen<br>
+  │<br>
+LoginScreen<br>
+  │<br>
+  ├─ Click "Registrarse" → RegisterScreen<br>
+  └─ Login exitoso → HomeScreen (limpia backstack)<br>
+  │<br>
+HomeScreen<br>
+  │<br>
+  └─ Click perfil → ProfileScreen<br>
+  │<br>
+ProfileScreen<br>
+  │<br>
+  └─ Logout → LoginScreen (limpia todo)
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Implementé Navigation Compose con NavHost. Creé rutas sealed classes para type safety. Lo más importante es el manejo del backstack: cuando haces login exitoso, uso popUpTo para limpiar el stack y que no puedas volver atrás con el botón."
+                    </div>
+                </div>
+
+                <div class="card vicente">
+                    <h3>COMMIT 7: Hice LoginScreen con validaciones</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Creaste la pantalla de login con validaciones en tiempo real.</p>
+                    
+                    <p><strong>LoginViewModel.kt:</strong></p>
+                    <pre>
+class LoginViewModel(private val database: AppDatabase?) : ViewModel() {
+    
+    // Estados observables
+    private val _email = MutableStateFlow("")
+    val email = _email.asStateFlow()
+    
+    private val _emailError = MutableStateFlow<String?>(null)
+    val emailError = _emailError.asStateFlow()
+    
+    // Validación en tiempo real
+    fun onEmailChange(newEmail: String) {
+        _email.value = newEmail
+        validateEmail(newEmail)
+    }
+    
+    private fun validateEmail(email: String) {
+        _emailError.value = when {
+            email.isBlank() -> "El email es requerido"
+            !Patterns.EMAIL_ADDRESS.matcher(email).matches() 
+                -> "Email invalido"
+            else -> null
+        }
+    }
+    
+    // Login con API
+    fun login() {
+        // Validar todo primero
+        validateEmail(_email.value)
+        validatePassword(_password.value)
+        
+        if (_emailError.value != null || _passwordError.value != null) {
+            return
+        }
+        
+        viewModelScope.launch {
+            _uiState.value = LoginUiState.Loading
+            
+            try {
+                val response = RetrofitClient.api.login(
+                    LoginRequest(_email.value, _password.value)
+                )
+                
+                if (response.isSuccessful && response.body() != null) {
+                    // Guardar en Room
+                    database?.userDao()?.insertUser(...)
+                    _uiState.value = LoginUiState.Success("Login exitoso")
+                } else {
+                    _uiState.value = LoginUiState.Error("Credenciales incorrectas")
+                }
+            } catch (e: Exception) {
+                _uiState.value = LoginUiState.Error("Error: ${e.message}")
+            }
+        }
+    }
+}</pre>
+
+                    <p><strong>LoginScreen.kt:</strong></p>
+                    <pre>
+@Composable
+fun LoginScreen(
+    onLoginSuccess: () -> Unit,
+    onNavigateToRegister: () -> Unit
+) {
+    val viewModel = remember { LoginViewModel(database) }
+    val email by viewModel.email.collectAsState()
+    val emailError by viewModel.emailError.collectAsState()
+    val uiState by viewModel.uiState.collectAsState()
+    
+    // Navegar cuando login exitoso
+    LaunchedEffect(uiState) {
+        if (uiState is LoginUiState.Success) {
+            onLoginSuccess()
+        }
+    }
+    
+    Column {
+        OutlinedTextField(
+            value = email,
+            onValueChange = { viewModel.onEmailChange(it) },
+            label = { Text("Email") },
+            isError = emailError != null,
+            supportingText = emailError?.let { { Text(it) } }
+        )
+        
+        Button(
+            onClick = { viewModel.login() },
+            enabled = uiState !is LoginUiState.Loading
+        ) {
+            if (uiState is LoginUiState.Loading) {
+                CircularProgressIndicator()
+            } else {
+                Text("Entrar")
+            }
+        }
+    }
+}</pre>
+
+                    <h4>Validaciones implementadas:</h4>
+                    <ul>
+                        <li>✅ Email: formato válido, no vacío</li>
+                        <li>✅ Contraseña: mínimo 8 caracteres, no vacío</li>
+                        <li>✅ Validación en tiempo real mientras escribes</li>
+                        <li>✅ Feedback visual inmediato (texto rojo bajo campo)</li>
+                    </ul>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Implementé validaciones en tiempo real con StateFlow. Cada vez que el usuario escribe, se llama onEmailChange() que valida inmediatamente. El ViewModel maneja tres estados: Idle, Loading y Success/Error. La UI reacciona automáticamente con collectAsState()."
+                    </div>
+                </div>
+
+                <div class="card vicente">
+                    <h3>COMMIT 8: Agregué HomeScreen simple</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Creaste la pantalla principal con catálogo de libros.</p>
+                    
+                    <pre>
+@Composable
+fun HomeScreen(onNavigateToProfile: () -> Unit) {
+    val books = remember {
+        listOf(
+            Book(1, "Cien años de soledad", "Gabriel García Márquez", 15990, "Ficción"),
+            Book(2, "1984", "George Orwell", 12990, "Distopía"),
+            // ... más libros
+        )
+    }
+    
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Booksy") },
+                actions = {
+                    IconButton(onClick = onNavigateToProfile) {
+                        Icon(Icons.Default.Person, "Perfil")
+                    }
+                }
+            )
+        }
+    ) { padding ->
+        LazyColumn(modifier = Modifier.padding(padding)) {
+            items(books) { book ->
+                BookCard(book)
+            }
+        }
+    }
+}</pre>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Creé el HomeScreen con un catálogo de libros usando LazyColumn para optimizar memoria. Los libros están hardcodeados por ahora pero la estructura permite conectarlos fácilmente a una API en el futuro."
+                    </div>
+                </div>
+
+                <div class="card vicente">
+                    <h3>COMMIT 11: Documenté API con Swagger</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Documentaste la API REST con estándar OpenAPI 3.0.</p>
+                    
+                    <h4>Archivos creados:</h4>
+                    <ul>
+                        <li><strong>API_DOCUMENTATION.md:</strong> Documentación legible para humanos</li>
+                        <li><strong>swagger.json:</strong> Especificación técnica OpenAPI</li>
+                    </ul>
+
+                    <h4>Endpoints documentados:</h4>
+                    <table>
+                        <tr>
+                            <th>Endpoint</th>
+                            <th>Método</th>
+                            <th>Propósito</th>
+                        </tr>
+                        <tr>
+                            <td>/auth/signup</td>
+                            <td>POST</td>
+                            <td>Registro de usuarios</td>
+                        </tr>
+                        <tr>
+                            <td>/auth/login</td>
+                            <td>POST</td>
+                            <td>Autenticación</td>
+                        </tr>
+                        <tr>
+                            <td>/auth/me</td>
+                            <td>GET</td>
+                            <td>Obtener usuario actual</td>
+                        </tr>
+                    </table>
+
+                    <div class="info">
+                        <strong>DIFERENCIA IMPORTANTE:</strong><br>
+                        La API devuelve <code>user_id</code> en lugar del objeto <code>user</code> completo. Ajustamos nuestro modelo para que coincida con la realidad.
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Documenté la API siguiendo el estándar OpenAPI 3.0 con Swagger. Incluye todos los endpoints, ejemplos de request/response y códigos de error. Cuando probamos la API real descubrimos que devuelve user_id en vez del objeto user completo, así que lo documentamos."
+                    </div>
+                </div>
+
+                <div class="card vicente">
+                    <h3>COMMIT 12: README completo</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Creaste la documentación final del proyecto.</p>
+                    
+                    <p><strong>README.md incluye:</strong></p>
+                    <ul>
+                        <li>Descripción del proyecto y alcance</li>
+                        <li>Tecnologías utilizadas</li>
+                        <li>Instrucciones de instalación</li>
+                        <li>Arquitectura y estructura</li>
+                        <li>Funcionalidades implementadas</li>
+                        <li>Documentación de la API</li>
+                        <li>User flows con casos de error</li>
+                        <li>Problemas encontrados y soluciones</li>
+                    </ul>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Creé un README completo siguiendo la plantilla del profesor. Documenté todo: desde instalación hasta los problemas que tuvimos. Lo escribí de forma realista para estudiantes, no como documentación corporativa."
+                    </div>
+                </div>
+            </section>
+
+            <!-- PARTE OSCAR -->
+            <section id="oscar">
+                <h2>🟠 Parte de Oscar</h2>
+                <span class="badge badge-oscar">COMMITS 1, 2, 3, 9, 10</span>
+
+                <div class="card oscar">
+                    <h3>COMMIT 1: Creé los modelos de datos</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Creaste las clases que representan los datos de la aplicación.</p>
+                    
+                    <p><strong>User.kt:</strong></p>
+                    <pre>
+data class User(
+    val id: Int,
+    val email: String,
+    val name: String?
+)</pre>
+
+                    <p><strong>Book.kt:</strong></p>
+                    <pre>
+data class Book(
+    val id: Int,
+    val title: String,
+    val author: String,
+    val price: Int,
+    val category: String,
+    val imageUrl: String? = null
+)</pre>
+
+                    <p><strong>AuthResponse.kt:</strong></p>
+                    <pre>
+data class AuthResponse(
+    @SerializedName("authToken")
+    val authToken: String,
+    
+    @SerializedName("user_id")
+    val userId: Int
+)</pre>
+
+                    <p><strong>LoginRequest.kt:</strong></p>
+                    <pre>
+data class LoginRequest(
+    val email: String,
+    val password: String
+)</pre>
+
+                    <p><strong>RegisterRequest.kt:</strong></p>
+                    <pre>
+data class RegisterRequest(
+    val email: String,
+    val password: String,
+    val name: String
+)</pre>
+
+                    <div class="info">
+                        <strong>¿Qué es un data class?</strong><br>
+                        Es una clase especial de Kotlin que automáticamente genera funciones útiles como <code>equals()</code>, <code>hashCode()</code>, <code>toString()</code> y <code>copy()</code>. Perfecta para clases que solo guardan datos.
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Creé los modelos de datos usando data classes. Representan las entidades que maneja la app: usuarios, libros, requests y responses de la API. Los data classes son ideales porque Kotlin genera automáticamente los métodos necesarios."
+                    </div>
+                </div>
+
+                <div class="card oscar">
+                    <h3>COMMIT 2: Agregué Room Database</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Implementaste la persistencia local con Room Database.</p>
+                    
+                    <h4>¿Qué es Room?</h4>
+                    <p>Es la librería oficial de Android para trabajar con SQLite. Proporciona una capa de abstracción sobre SQLite para un acceso más robusto.</p>
+
+                    <p><strong>UserEntity.kt:</strong> La tabla</p>
+                    <pre>
+@Entity(tableName = "user")
+data class UserEntity(
+    @PrimaryKey 
+    val id: Int,
+    val email: String,
+    val name: String,
+    val token: String,
+    val profileImagePath: String?
+)</pre>
+
+                    <p><strong>UserDao.kt:</strong> Las operaciones</p>
+                    <pre>
+@Dao
+interface UserDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUser(user: UserEntity)
+    
+    @Query("SELECT * FROM user LIMIT 1")
+    fun getUser(): Flow&lt;UserEntity?&gt;
+    
+    @Query("SELECT * FROM user LIMIT 1")
+    suspend fun getUserOnce(): UserEntity?
+    
+    @Query("UPDATE user SET profileImagePath = :imagePath WHERE id = :userId")
+    suspend fun updateProfileImage(userId: Int, imagePath: String)
+    
+    @Query("DELETE FROM user")
+    suspend fun deleteUser()
+}</pre>
+
+                    <p><strong>AppDatabase.kt:</strong> La configuración</p>
+                    <pre>
+@Database(entities = [UserEntity::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun userDao(): UserDao
+    
+    companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
+        
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "booksy_database"
+                ).build()
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
+}</pre>
+
+                    <h4>Flujo de datos:</h4>
+                    <div class="flow-diagram">
+Login exitoso<br>
+  ↓<br>
+<span class="arrow">insertUser()</span> → Guardar en Room<br>
+  ↓<br>
+Usuario cierra app<br>
+  ↓<br>
+Abre app de nuevo<br>
+  ↓<br>
+<span class="arrow">getUserOnce()</span> → ¿Hay usuario?<br>
+  ├─ SÍ → HomeScreen<br>
+  └─ NO → LoginScreen<br>
+<br>
+Usuario hace logout<br>
+  ↓<br>
+<span class="arrow">deleteUser()</span> → Borrar de Room<br>
+  ↓<br>
+LoginScreen
+                    </div>
+
+                    <div class="info">
+                        <strong>¿Por qué Room y no SharedPreferences?</strong><br>
+                        Room es mejor para datos estructurados. Permite consultas SQL complejas, es type-safe y más seguro. SharedPreferences es solo para configuraciones simples.
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Implementé Room Database para persistencia local. Creé la entidad UserEntity que representa la tabla user, el DAO con las operaciones CRUD y AppDatabase para configurar la base de datos. Uso el patrón Singleton para tener una sola instancia de la BD."
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ PREGUNTA TRAMPA:</strong><br>
+                        "¿Por qué usaron KAPT?"<br>
+                        <strong>RESPUESTA CORRECTA:</strong> "En realidad NO usamos KAPT, usamos KSP. KAPT daba problemas con JDK 17, así que cambiamos a KSP que es más moderno y rápido."
+                    </div>
+                </div>
+
+                <div class="card oscar">
+                    <h3>COMMIT 3: Conecté API con Retrofit</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Configuraste Retrofit para conectarte a la API REST.</p>
+                    
+                    <h4>¿Qué es Retrofit?</h4>
+                    <p>Es una librería que convierte una API HTTP en una interfaz Java/Kotlin. Hace las peticiones HTTP por ti y automáticamente convierte JSON a objetos.</p>
+
+                    <p><strong>BooksyApi.kt:</strong> Los endpoints</p>
+                    <pre>
+interface BooksyApi {
+    
+    @POST("/auth/signup")
+    suspend fun register(
+        @Body request: RegisterRequest
+    ): Response&lt;AuthResponse&gt;
+    
+    @POST("/auth/login")
+    suspend fun login(
+        @Body request: LoginRequest
+    ): Response&lt;AuthResponse&gt;
+    
+    @GET("/auth/me")
+    suspend fun getCurrentUser(
+        @Header("Authorization") token: String
+    ): Response&lt;User&gt;
+}</pre>
+
+                    <p><strong>RetrofitClient.kt:</strong> La configuración</p>
+                    <pre>
+object RetrofitClient {
+    
+    private const val BASE_URL = "https://x8ki-letl-twmt.n7.xano.io/api:Rfm_61dW/"
+    
+    // Logging para ver qué se envía/recibe
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+    
+    // Cliente HTTP con timeouts
+    private val httpClient = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .build()
+    
+    // Instancia de Retrofit
+    private val retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .client(httpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    
+    // API lista para usar
+    val api: BooksyApi = retrofit.create(BooksyApi::class.java)
+}</pre>
+
+                    <h4>Flujo de una petición:</h4>
+                    <div class="flow-diagram">
+Usuario presiona "Entrar"<br>
+  ↓<br>
+LoginViewModel.login()<br>
+  ↓<br>
+RetrofitClient.api.login(LoginRequest(email, password))<br>
+  ↓<br>
+Retrofit convierte LoginRequest a JSON<br>
+  ↓<br>
+OkHttp hace POST a https://.../auth/login<br>
+  ↓<br>
+API responde con JSON<br>
+  ↓<br>
+Gson convierte JSON a AuthResponse<br>
+  ↓<br>
+ViewModel recibe AuthResponse(authToken, user_id)<br>
+  ↓<br>
+Guarda en Room<br>
+  ↓<br>
+Navega a HomeScreen
+                    </div>
+
+                    <div class="info">
+                        <strong>¿Por qué Retrofit y no HttpURLConnection?</strong><br>
+                        Retrofit es más fácil de usar, tiene menos boilerplate, maneja automáticamente la conversión JSON y tiene mejor manejo de errores.
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Configuré Retrofit para conectarnos a la API externa. Creé la interfaz BooksyApi que define los endpoints. RetrofitClient configura Retrofit con el BASE_URL, logging para debugging y timeouts de 30 segundos. Uso GsonConverterFactory para convertir automáticamente JSON a objetos."
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ PREGUNTA TRAMPA:</strong><br>
+                        "¿Ustedes crearon la API?"<br>
+                        <strong>RESPUESTA CORRECTA:</strong> "No, la API es externa, está alojada en Xano. Nosotros solo nos conectamos a ella con Retrofit."
+                    </div>
+                </div>
+
+                <div class="card oscar">
+                    <h3>COMMIT 9: Hice RegisterScreen</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Creaste la pantalla de registro con 4 campos validados.</p>
+                    
+                    <p><strong>RegisterViewModel.kt:</strong></p>
+                    <pre>
+class RegisterViewModel(private val database: AppDatabase?) : ViewModel() {
+    
+    // Estados para cada campo
+    private val _name = MutableStateFlow("")
+    val name = _name.asStateFlow()
+    
+    private val _email = MutableStateFlow("")
+    val email = _email.asStateFlow()
+    
+    private val _password = MutableStateFlow("")
+    val password = _password.asStateFlow()
+    
+    private val _confirmPassword = MutableStateFlow("")
+    val confirmPassword = _confirmPassword.asStateFlow()
+    
+    // Estados de error para cada campo
+    private val _nameError = MutableStateFlow<String?>(null)
+    val nameError = _nameError.asStateFlow()
+    
+    private val _emailError = MutableStateFlow<String?>(null)
+    val emailError = _emailError.asStateFlow()
+    
+    private val _passwordError = MutableStateFlow<String?>(null)
+    val passwordError = _passwordError.asStateFlow()
+    
+    private val _confirmPasswordError = MutableStateFlow<String?>(null)
+    val confirmPasswordError = _confirmPasswordError.asStateFlow()
+    
+    // Validación de nombre
+    fun onNameChange(newName: String) {
+        _name.value = newName
+        validateName(newName)
+    }
+    
+    private fun validateName(name: String) {
+        _nameError.value = when {
+            name.isBlank() -> "El nombre es requerido"
+            name.length < 2 -> "Minimo 2 caracteres"
+            else -> null
+        }
+    }
+    
+    // Validación de contraseña
+    private fun validatePassword(password: String) {
+        _passwordError.value = when {
+            password.isBlank() -> "La contraseña es requerida"
+            password.length < 8 -> "Minimo 8 caracteres"
+            else -> null
+        }
+    }
+    
+    // Validación de confirmar contraseña
+    private fun validateConfirmPassword(confirmPassword: String) {
+        _confirmPasswordError.value = when {
+            confirmPassword.isBlank() -> "Debes confirmar la contraseña"
+            confirmPassword != _password.value -> "Las contraseñas no coinciden"
+            else -> null
+        }
+    }
+    
+    // Registro
+    fun register() {
+        // Validar todo
+        validateName(_name.value)
+        validateEmail(_email.value)
+        validatePassword(_password.value)
+        validateConfirmPassword(_confirmPassword.value)
+        
+        // Si hay errores, no continuar
+        if (_nameError.value != null || 
+            _emailError.value != null || 
+            _passwordError.value != null || 
+            _confirmPasswordError.value != null) {
+            return
+        }
+        
+        viewModelScope.launch {
+            _uiState.value = RegisterUiState.Loading
+            
+            try {
+                val request = RegisterRequest(
+                    email = _email.value,
+                    password = _password.value,
+                    name = _name.value
+                )
+                
+                val response = RetrofitClient.api.register(request)
+                
+                if (response.isSuccessful && response.body() != null) {
+                    val authResponse = response.body()!!
+                    
+                    // Guardar en Room
+                    database?.userDao()?.insertUser(
+                        UserEntity(
+                            id = authResponse.userId,
+                            email = _email.value,
+                            name = _name.value,
+                            token = authResponse.authToken,
+                            profileImagePath = null
+                        )
+                    )
+                    
+                    _uiState.value = RegisterUiState.Success("Registro exitoso")
+                } else {
+                    val errorMsg = when (response.code()) {
+                        400 -> "Datos inválidos. Verifica los campos."
+                        403 -> "Este email ya está registrado"
+                        500, 502, 503 -> "Servidor no disponible."
+                        else -> "Error al registrar (${response.code()})"
+                    }
+                    _uiState.value = RegisterUiState.Error(errorMsg)
+                }
+            } catch (e: Exception) {
+                _uiState.value = RegisterUiState.Error("Error: ${e.message}")
+            }
+        }
+    }
+}</pre>
+
+                    <h4>Validaciones implementadas:</h4>
+                    <ul>
+                        <li>✅ <strong>Nombre:</strong> Mínimo 2 caracteres, no vacío</li>
+                        <li>✅ <strong>Email:</strong> Formato válido, no vacío</li>
+                        <li>✅ <strong>Contraseña:</strong> Mínimo 8 caracteres, no vacío</li>
+                        <li>✅ <strong>Confirmar:</strong> Debe coincidir con contraseña</li>
+                        <li>✅ Todas en tiempo real mientras escribes</li>
+                    </ul>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Creé RegisterScreen con 4 campos validados en tiempo real. Cada campo tiene su StateFlow de valor y error. Las validaciones se ejecutan apenas el usuario escribe. Si todo está válido, hago POST a /auth/signup y guardo el usuario en Room."
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ PROBLEMA ENCONTRADO:</strong><br>
+                        La API requiere contraseñas de mínimo 8 caracteres. Al principio teníamos validación de 6 pero la API rechazaba con error 400. Lo corregimos a 8.
+                    </div>
+                </div>
+
+                <div class="card oscar">
+                    <h3>COMMIT 10: Implementé cámara en ProfileScreen</h3>
+                    <h4>¿Qué hiciste?</h4>
+                    <p>Implementaste la funcionalidad de cambiar foto de perfil usando cámara o galería.</p>
+                    
+                    <p><strong>ProfileViewModel.kt:</strong></p>
+                    <pre>
+class ProfileViewModel(private val database: AppDatabase? = null) : ViewModel() {
+    
+    private val _currentUser = MutableStateFlow<UserEntity?>(null)
+    val currentUser = _currentUser.asStateFlow()
+    
+    private val _profileImageUri = MutableStateFlow<Uri?>(null)
+    val profileImageUri = _profileImageUri.asStateFlow()
+    
+    init {
+        loadUserData()
+    }
+    
+    private fun loadUserData() {
+        viewModelScope.launch {
+            database?.userDao()?.getUser()?.collect { user ->
+                _currentUser.value = user
+                user?.profileImagePath?.let { path ->
+                    _profileImageUri.value = Uri.parse(path)
+                }
+            }
+        }
+    }
+    
+    // Crear URI temporal para la cámara
+    fun createImageUri(context: Context): Uri {
+        val imageFile = File(context.filesDir, "profile_temp.jpg")
+        return FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.fileprovider",
+            imageFile
+        )
+    }
+    
+    // Guardar imagen en almacenamiento interno
+    fun saveProfileImage(context: Context, uri: Uri) {
+        viewModelScope.launch {
+            try {
+                val fileName = "profile_${System.currentTimeMillis()}.jpg"
+                val destinationFile = File(context.filesDir, fileName)
+                
+                // Copiar imagen
+                context.contentResolver.openInputStream(uri)?.use { input ->
+                    FileOutputStream(destinationFile).use { output ->
+                        input.copyTo(output)
+                    }
+                }
+                
+                val savedUri = Uri.fromFile(destinationFile)
+                _profileImageUri.value = savedUri
+                
+                // Actualizar en Room
+                _currentUser.value?.let { user ->
+                    database?.userDao()?.updateProfileImage(
+                        user.id,
+                        savedUri.toString()
+                    )
+                }
+            } catch (e: Exception) {
+                // Manejo de error
+            }
+        }
+    }
+    
+    fun logout() {
+        viewModelScope.launch {
+            database?.userDao()?.deleteUser()
+        }
+    }
+}</pre>
+
+                    <p><strong>ProfileScreen.kt:</strong></p>
+                    <pre>
+@Composable
+fun ProfileScreen(onLogout: () -> Unit, onNavigateBack: () -> Unit) {
+    val context = LocalContext.current
+    val viewModel = remember { ProfileViewModel(database) }
+    
+    val profileImageUri by viewModel.profileImageUri.collectAsState()
+    var showImageSourceDialog by remember { mutableStateOf(false) }
+    var tempCameraUri by remember { mutableStateOf<Uri?>(null) }
+    
+    // Permiso de cámara
+    val cameraPermissionState = rememberPermissionState(
+        Manifest.permission.CAMERA
+    )
+    
+    // Launcher para cámara
+    val cameraLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicture()
+    ) { success ->
+        if (success && tempCameraUri != null) {
+            viewModel.saveProfileImage(context, tempCameraUri!!)
+        }
+    }
+    
+    // Launcher para galería
+    val galleryLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri ->
+        uri?.let {
+            viewModel.saveProfileImage(context, it)
+        }
+    }
+    
+    // UI con foto circular
+    Box(
+        modifier = Modifier
+            .size(150.dp)
+            .clip(CircleShape)
+            .clickable { showImageSourceDialog = true }
+    ) {
+        if (profileImageUri != null) {
+            Image(
+                painter = rememberAsyncImagePainter(profileImageUri),
+                contentDescription = "Foto de perfil",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
+        } else {
+            Icon(
+                imageVector = Icons.Default.Person,
+                contentDescription = "Sin foto"
+            )
+        }
+    }
+    
+    // Dialog para elegir cámara o galería
+    if (showImageSourceDialog) {
+        AlertDialog(
+            onDismissRequest = { showImageSourceDialog = false },
+            title = { Text("Seleccionar imagen") },
+            text = { Text("¿De dónde quieres obtener la imagen?") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showImageSourceDialog = false
+                        if (cameraPermissionState.status.isGranted) {
+                            tempCameraUri = viewModel.createImageUri(context)
+                            cameraLauncher.launch(tempCameraUri!!)
+                        } else {
+                            cameraPermissionState.launchPermissionRequest()
+                        }
+                    }
+                ) {
+                    Text("Cámara")
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showImageSourceDialog = false
+                        galleryLauncher.launch("image/*")
+                    }
+                ) {
+                    Text("Galería")
+                }
+            }
+        )
+    }
+}</pre>
+
+                    <h4>¿Cómo funciona?</h4>
+                    <div class="flow-diagram">
+Usuario click en "Cambiar foto"<br>
+  ↓<br>
+Muestra AlertDialog: Cámara o Galería<br>
+  ↓<br>
+<strong>SI ELIGE CÁMARA:</strong><br>
+  ├─ Verifica permiso CAMERA<br>
+  │   ├─ Tiene permiso → Abre cámara<br>
+  │   └─ No tiene → Pide permiso<br>
+  ↓<br>
+Usuario toma foto<br>
+  ↓<br>
+cameraLauncher recibe success=true<br>
+  ↓<br>
+viewModel.saveProfileImage(tempCameraUri)<br>
+  ↓<br>
+<strong>SI ELIGE GALERÍA:</strong><br>
+  ↓<br>
+Abre selector de imágenes<br>
+  ↓<br>
+Usuario selecciona imagen<br>
+  ↓<br>
+galleryLauncher recibe Uri<br>
+  ↓<br>
+viewModel.saveProfileImage(uri)<br>
+  ↓<br>
+<strong>GUARDADO:</strong><br>
+  ↓<br>
+Copia imagen a filesDir/profile_timestamp.jpg<br>
+  ↓<br>
+Actualiza Room con nueva ruta<br>
+  ↓<br>
+UI se actualiza automáticamente (StateFlow)
+                    </div>
+
+                    <h4>Archivos adicionales necesarios:</h4>
+                    
+                    <p><strong>AndroidManifest.xml:</strong></p>
+                    <pre>
+&lt;uses-permission android:name="android.permission.CAMERA" /&gt;
+&lt;uses-feature android:name="android.hardware.camera" android:required="false" /&gt;
+
+&lt;provider
+    android:name="androidx.core.content.FileProvider"
+    android:authorities="${applicationId}.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true"&gt;
+    &lt;meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_paths" /&gt;
+&lt;/provider&gt;</pre>
+
+                    <p><strong>res/xml/file_paths.xml:</strong></p>
+                    <pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;paths xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+    &lt;files-path 
+        name="profile_images" 
+        path="." /&gt;
+&lt;/paths&gt;</pre>
+
+                    <div class="info">
+                        <strong>¿Qué es FileProvider?</strong><br>
+                        Es una forma segura de compartir archivos entre apps. La cámara necesita permiso para guardar en nuestra carpeta, FileProvider otorga ese permiso temporal.
+                    </div>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "Implementé la funcionalidad de cámara y galería usando ActivityResultContracts. Para los permisos uso Accompanist Permissions. La foto se guarda en el almacenamiento interno de la app y la ruta se actualiza en Room. FileProvider permite que la cámara acceda de forma segura a nuestra carpeta."
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ PREGUNTA TRAMPA:</strong><br>
+                        "¿Dónde se guardan las fotos?"<br>
+                        <strong>RESPUESTA CORRECTA:</strong> "En el almacenamiento interno de la app (filesDir). No en la galería del usuario. Si desinstala la app, se pierden las fotos."
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONCEPTOS CLAVE -->
+            <section id="conceptos">
+                <h2>💡 Conceptos Clave para Dominar</h2>
+
+                <div class="card">
+                    <h3>1. Corrutinas (Coroutines)</h3>
+                    <p><strong>¿Qué son?</strong> Forma de ejecutar código asíncrono sin bloquear el hilo principal (UI).</p>
+                    
+                    <pre>
+// Ejecutar en corrutina
+viewModelScope.launch {
+    // Esto se ejecuta en background
+    val response = RetrofitClient.api.login(request)
+    
+    // Volver al hilo principal
+    database.userDao().insertUser(user)
+}</pre>
+
+                    <div class="info">
+                        <strong>¿Por qué usarlas?</strong><br>
+                        Si haces peticiones HTTP en el hilo principal, la app se congela. Las corrutinas permiten hacer operaciones largas sin congelar la UI.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>2. StateFlow</h3>
+                    <p><strong>¿Qué es?</strong> Observable que permite a la UI reaccionar automáticamente a cambios de datos.</p>
+                    
+                    <pre>
+// En ViewModel (privado, solo ViewModel lo cambia)
+private val _email = MutableStateFlow("")
+val email = _email.asStateFlow()  // Público, UI lo observa
+
+// En Screen (observa cambios)
+val emailValue by viewModel.email.collectAsState()
+
+OutlinedTextField(
+    value = emailValue,  // Se actualiza solo cuando cambia
+    onValueChange = { viewModel.onEmailChange(it) }
+)</pre>
+
+                    <div class="info">
+                        <strong>Flujo de datos:</strong><br>
+                        Usuario escribe → onValueChange → ViewModel cambia StateFlow → UI se recompone automáticamente
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>3. suspend fun</h3>
+                    <p><strong>¿Qué significa?</strong> Función que puede pausarse y reanudarse, usada con corrutinas.</p>
+                    
+                    <pre>
+// Función suspend
+suspend fun login(request: LoginRequest): Response&lt;AuthResponse&gt;
+
+// Solo se puede llamar desde corrutina
+viewModelScope.launch {
+    val response = api.login(request)  // Se pausa aquí hasta recibir respuesta
+    // Continúa aquí cuando llega respuesta
+}</pre>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "suspend indica que es una función asíncrona que puede pausarse. Solo se puede llamar desde una corrutina. Cuando llamas a una suspend fun, la corrutina se pausa en ese punto hasta que la función termine, pero sin bloquear el hilo."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>4. @Composable</h3>
+                    <p><strong>¿Qué es?</strong> Anotación que marca funciones que dibujan UI en Jetpack Compose.</p>
+                    
+                    <pre>
+@Composable
+fun LoginScreen() {
+    Column {
+        Text("Login")
+        Button(onClick = {}) {
+            Text("Entrar")
+        }
+    }
+}</pre>
+
+                    <div class="info">
+                        <strong>Recomposición:</strong><br>
+                        Cuando un dato observado cambia, Compose "redibuja" solo las partes afectadas de la UI. Esto se llama recomposición.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>5. LaunchedEffect</h3>
+                    <p><strong>¿Qué hace?</strong> Ejecuta código cuando un valor cambia.</p>
+                    
+                    <pre>
+@Composable
+fun LoginScreen(onLoginSuccess: () -> Unit) {
+    val uiState by viewModel.uiState.collectAsState()
+    
+    // Observa cambios en uiState
+    LaunchedEffect(uiState) {
+        if (uiState is LoginUiState.Success) {
+            onLoginSuccess()  // Navegar cuando login exitoso
+        }
+    }
+}</pre>
+
+                    <div class="tip">
+                        <strong>💡 PARA LA DEFENSA:</strong><br>
+                        "LaunchedEffect observa cambios en uiState. Cuando el estado cambia a Success, automáticamente llama onLoginSuccess() para navegar al Home."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>6. sealed class</h3>
+                    <p><strong>¿Qué es?</strong> Clase que solo puede tener subclases conocidas, perfecta para estados.</p>
+                    
+                    <pre>
+sealed class LoginUiState {
+    object Idle : LoginUiState()
+    object Loading : LoginUiState()
+    data class Success(val message: String) : LoginUiState()
+    data class Error(val message: String) : LoginUiState()
+}
+
+// Uso
+when (uiState) {
+    is LoginUiState.Idle -> { /* nada */ }
+    is LoginUiState.Loading -> CircularProgressIndicator()
+    is LoginUiState.Success -> Text(uiState.message)
+    is LoginUiState.Error -> Text(uiState.message)
+}</pre>
+
+                    <div class="info">
+                        <strong>Ventaja:</strong><br>
+                        El compilador verifica que manejes todos los casos posibles. No puedes olvidar ningún estado.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>7. remember { }</h3>
+                    <p><strong>¿Qué hace?</strong> Guarda un valor entre recomposiciones.</p>
+                    
+                    <pre>
+@Composable
+fun MyScreen() {
+    // Sin remember: se crea nuevo ViewModel en cada recomposición
+    val viewModel = LoginViewModel()  // ❌ MALO
+    
+    // Con remember: mismo ViewModel siempre
+    val viewModel = remember { LoginViewModel() }  // ✅ BUENO
+}</pre>
+                </div>
+
+                <div class="card">
+                    <h3>8. object vs class</h3>
+                    <p><strong>object:</strong> Singleton, una sola instancia</p>
+                    <pre>
+object RetrofitClient {
+    val api: BooksyApi = ...
+}
+
+// Uso: siempre la misma instancia
+RetrofitClient.api.login()</pre>
+
+                    <p><strong>class:</strong> Puede tener múltiples instancias</p>
+                    <pre>
+class LoginViewModel {
+    ...
+}
+
+// Uso: crear nueva instancia
+val viewModel = LoginViewModel()</pre>
+                </div>
+
+                <div class="card">
+                    <h3>9. Flow vs suspend fun</h3>
+                    
+                    <p><strong>Flow:</strong> Stream de datos, emite múltiples valores</p>
+                    <pre>
+// DAO con Flow
+@Query("SELECT * FROM user")
+fun getUser(): Flow&lt;UserEntity?&gt;
+
+// Observar cambios continuos
+database.userDao().getUser().collect { user ->
+    // Se ejecuta cada vez que cambia la tabla
+}</pre>
+
+                    <p><strong>suspend fun:</strong> Una sola respuesta</p>
+                    <pre>
+// DAO con suspend
+@Query("SELECT * FROM user")
+suspend fun getUserOnce(): UserEntity?
+
+// Obtener valor una vez
+val user = database.userDao().getUserOnce()</pre>
+                </div>
+
+                <div class="card">
+                    <h3>10. @SerializedName</h3>
+                    <p><strong>¿Para qué sirve?</strong> Mapea nombres JSON a nombres Kotlin.</p>
+                    
+                    <pre>
+// JSON de la API:
+{
+  "authToken": "...",
+  "user_id": 94
+}
+
+// Modelo Kotlin:
+data class AuthResponse(
+    @SerializedName("authToken")
+    val authToken: String,
+    
+    @SerializedName("user_id")  // JSON: user_id → Kotlin: userId
+    val userId: Int
+)</pre>
+                </div>
+            </section>
+
+            <!-- PREGUNTAS TRAMPA -->
+            <section id="trampas">
+                <h2>⚠️ Preguntas Trampa del Profesor</h2>
+
+                <div class="card trap">
+                    <h3>TRAMPA #1: "¿Ustedes crearon la API?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "No, la API es externa, está alojada en Xano. Nosotros solo nos conectamos a ella usando Retrofit para hacer las peticiones HTTP."
+                    </div>
+                    
+                    <div class="wrong-answer">
+                        <strong>❌ NO DIGAS:</strong><br>
+                        • "Sí, hicimos una API en Node.js"<br>
+                        • "Creamos el backend en AWS"<br>
+                        • "Deployeamos la API en Heroku"<br>
+                        <em>→ Todo eso es MENTIRA, te reprobarían</em>
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #2: "¿Cómo funciona JWT?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "JWT es un token de autenticación. La API lo genera cuando haces login exitoso. Nosotros lo guardamos en Room Database y lo enviamos en el header Authorization: Bearer {token} cuando hacemos peticiones protegidas como /auth/me."
+                    </div>
+                    
+                    <div class="wrong-answer">
+                        <strong>❌ NO DIGAS:</strong><br>
+                        • "Implementamos el algoritmo HS256 para firmar el JWT"<br>
+                        • "Encriptamos el JWT con RSA"<br>
+                        • "Validamos la expiración del token con jose4j"<br>
+                        <em>→ NO implementaste nada de eso, la API lo hace</em>
+                    </div>
+                    
+                    <div class="info">
+                        <strong>Lo que SÍ hiciste con JWT:</strong><br>
+                        1. Recibirlo de la API<br>
+                        2. Guardarlo en Room<br>
+                        3. Enviarlo en requests protegidos<br>
+                        <strong>Eso es todo. No generaste ni validaste JWT.</strong>
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #3: "¿Por qué no usaron Repository pattern?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "Para mantener el proyecto simple y entendible. El ViewModel llama directo a Retrofit y Room. Un Repository sería otra capa de abstracción que para el alcance de este proyecto no era necesaria. Si el proyecto creciera, ahí sí consideraríamos agregar un Repository."
+                    </div>
+                    
+                    <div class="wrong-answer">
+                        <strong>❌ NO DIGAS:</strong><br>
+                        • "¿Qué es eso?" → Demuestra ignorancia<br>
+                        • "Se nos olvidó" → Demuestra falta de decisión<br>
+                        • "El tiempo no nos alcanzó" → Suena a excusa<br>
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #4: "La API debería devolver objeto user completo"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "La documentación inicial indicaba eso, pero cuando probamos la API real, descubrimos que solo devuelve user_id. Ajustamos nuestro modelo AuthResponse para que coincida con lo que realmente devuelve. Lo documentamos en API_DOCUMENTATION.md en la sección 'Notas de Implementación'."
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Lección aprendida:</strong><br>
+                        "En proyectos reales, las APIs pueden diferir de su documentación. Es importante probar y adaptar el código."
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #5: "¿Dónde está el backend?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "El backend está en Xano, que es una plataforma externa de backend-as-a-service. Nosotros solo desarrollamos el frontend Android."
+                    </div>
+                    
+                    <div class="wrong-answer">
+                        <strong>❌ NO DIGAS:</strong><br>
+                        • "En nuestro servidor"<br>
+                        • "Lo deployeamos en AWS"<br>
+                        • "Está en mi computador local"<br>
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #6: "¿Implementaron testing?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "No implementamos testing unitario. Decidimos enfocarnos en las funcionalidades principales que eran requisitos obligatorios. El testing hubiera sido bueno tenerlo pero priorizamos cumplir con los requisitos esenciales del proyecto."
+                    </div>
+                    
+                    <div class="wrong-answer">
+                        <strong>❌ NO DIGAS:</strong><br>
+                        • "Sí, hicimos tests con JUnit y Mockito" (si no hay tests, es mentira obvia)<br>
+                        • "No sabíamos cómo hacer tests" (suena poco profesional)<br>
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #7: "¿Usaron IA para generar código?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA HONESTA:</strong><br>
+                        "Consultamos documentación oficial de Android, Stack Overflow y ejemplos en internet, como cualquier desarrollador hace. El código lo escribimos nosotros adaptándolo a las necesidades específicas de nuestro proyecto."
+                    </div>
+                    
+                    <div class="wrong-answer">
+                        <strong>❌ NO DIGAS:</strong><br>
+                        • "No, todo desde cero sin ayuda" (poco creíble)<br>
+                        • "Sí, ChatGPT lo hizo todo" (repruebas automático)<br>
+                    </div>
+                    
+                    <div class="tip">
+                        <strong>Clave:</strong> Ser honesto pero inteligente. Todos consultamos recursos, eso es normal.
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #8: "¿Por qué Room y no SharedPreferences?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "Room es mejor para datos estructurados. Nos permite hacer consultas SQL, es type-safe, más seguro y escalable. SharedPreferences es solo para datos simples como configuraciones o flags booleanos. Para guardar un usuario completo con múltiples campos, Room es la opción correcta."
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #9: "¿Por qué usaron KAPT?"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ RESPUESTA CORRECTA:</strong><br>
+                        "En realidad NO usamos KAPT, usamos KSP. Al principio intentamos con KAPT pero daba errores con JDK 17. Investigamos y descubrimos que KSP es el reemplazo moderno de KAPT, es más rápido y funciona mejor con versiones recientes de JDK. Ese fue uno de nuestros primeros problemas que solucionamos."
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>No caigas en la trampa:</strong> El profe puede saber que KAPT está deprecated.
+                    </div>
+                </div>
+
+                <div class="card trap">
+                    <h3>TRAMPA #10: "Muéstrame el código del login"</h3>
+                    
+                    <div class="answer">
+                        <strong>✅ QUÉ HACER:</strong><br>
+                        1. Abre LoginViewModel.kt<br>
+                        2. Muestra la función login()<br>
+                        3. Explica paso por paso mientras señalas el código<br>
+                        4. "Aquí valido los campos... aquí llamo a la API... aquí guardo en Room..."
+                    </div>
+                    
+                    <div class="tip">
+                        <strong>Ventaja:</strong> Si tienes el código enfrente, puedes "leer" y explicar sin memorizar.
+                    </div>
+                </div>
+            </section>
+
+            <!-- SIMULACIÓN DE DEFENSA -->
+            <section id="simulacion">
+                <h2>🎬 Simulación de Defensa</h2>
+                <p><em>Practica estas conversaciones en voz alta</em></p>
+
+                <div class="card">
+                    <h3>Escenario 1: Pregunta General</h3>
+                    
+                    <div class="question">
+                        PROFESOR: "¿Qué hace tu aplicación?"
+                    </div>
+                    
+                    <div class="answer">
+                        TÚ: "Es una aplicación Android de catálogo de libros. Permite a los usuarios registrarse con email y contraseña, iniciar sesión, ver un catálogo de libros con información como título, autor y precio, y actualizar su foto de perfil usando la cámara o seleccionando de la galería. También implementamos persistencia local con Room para mantener la sesión activa."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Escenario 2: Flujo Técnico</h3>
+                    
+                    <div class="question">
+                        PROFESOR: "Explícame el flujo completo de login"
+                    </div>
+                    
+                    <div class="answer">
+                        TÚ: "Claro. El usuario ingresa su email y contraseña en el LoginScreen. Estos campos se validan en tiempo real - si el email tiene formato inválido, aparece un mensaje de error inmediatamente bajo el campo. 
+                        <br><br>
+                        Al presionar el botón Entrar, el LoginViewModel recibe el evento y primero valida todos los campos. Si hay errores, no continúa. Si todo está válido, cambia el estado a Loading para mostrar un spinner.
+                        <br><br>
+                        Luego hace una petición POST a /auth/login con las credenciales. Esta petición la maneja Retrofit que convierte nuestro objeto LoginRequest a JSON, lo envía a la API en Xano, y cuando recibe la respuesta JSON la convierte de vuelta a un objeto AuthResponse.
+                        <br><br>
+                        Si la respuesta es exitosa, extraemos el token y el user_id, creamos un UserEntity con esos datos más el email y nombre del formulario, y lo guardamos en Room Database usando insertUser().
+                        <br><br>
+                        Finalmente cambiamos el estado a Success. El LoginScreen observa este cambio con LaunchedEffect y automáticamente navega al HomeScreen, limpiando el backstack con popUpTo para que no puedas volver al login con el botón de atrás."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Escenario 3: Pregunta Conceptual</h3>
+                    
+                    <div class="question">
+                        PROFESOR: "¿Qué es MVVM y por qué lo usaron?"
+                    </div>
+                    
+                    <div class="answer">
+                        TÚ: "MVVM es un patrón de arquitectura que significa Model-View-ViewModel. Separa la aplicación en tres capas con responsabilidades claras.
+                        <br><br>
+                        El Model son los datos - en nuestro caso Room Database y Retrofit. La View es la interfaz de usuario - nuestros Composables como LoginScreen. El ViewModel tiene la lógica de negocio - validaciones, llamadas a API, manejo de estado.
+                        <br><br>
+                        Lo usamos porque mantiene el código organizado y fácil de mantener. Por ejemplo, LoginScreen solo se preocupa de dibujar campos y botones. LoginViewModel maneja toda la lógica de validación y autenticación. Si mañana queremos cambiar la API, solo tocamos el Model. Si queremos cambiar el diseño, solo tocamos la View. Cada capa es independiente."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Escenario 4: Problema Técnico</h3>
+                    
+                    <div class="question">
+                        PROFESOR: "¿Qué problemas tuvieron durante el desarrollo?"
+                    </div>
+                    
+                    <div class="answer">
+                        TÚ: "Tuvimos tres problemas principales:
+                        <br><br>
+                        <strong>Primero,</strong> KAPT no funcionaba con JDK 17. Nos daba errores al compilar Room. Investigamos y descubrimos que KAPT está deprecated y lo reemplazamos con KSP que es más moderno y funciona perfecto.
+                        <br><br>
+                        <strong>Segundo,</strong> la API devolvía datos diferentes a lo que esperábamos según la documentación. Esperábamos un objeto user completo pero solo venía user_id. Tuvimos que ajustar nuestro modelo AuthResponse y usar los datos del formulario para llenar el resto.
+                        <br><br>
+                        <strong>Tercero,</strong> la validación de contraseña. Al principio la teníamos en 6 caracteres mínimo pero la API rechazaba con error 400 diciendo 'mínimo 8 caracteres'. Corregimos la validación a 8 y funcionó. Lo bueno es que teníamos logging de OkHttp que nos mostró exactamente qué estaba fallando."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Escenario 5: Pregunta de Implementación</h3>
+                    
+                    <div class="question">
+                        PROFESOR: "¿Cómo funciona la persistencia de sesión?"
+                    </div>
+                    
+                    <div class="answer">
+                        TÚ: "Usamos Room Database para persistir la sesión. Cuando un usuario hace login o registro exitoso, guardamos sus datos en la tabla user - id, email, name, token y profileImagePath.
+                        <br><br>
+                        En NavGraph, cuando la app inicia, hacemos una consulta a Room con getUserOnce(). Si devuelve un usuario, significa que hay sesión activa y navegamos directo al HomeScreen. Si devuelve null, no hay sesión y mostramos el LoginScreen.
+                        <br><br>
+                        El token JWT se guarda junto con los datos del usuario. Cuando necesitamos hacer peticiones autenticadas como /auth/me, extraemos el token de Room y lo enviamos en el header Authorization.
+                        <br><br>
+                        Cuando el usuario hace logout, simplemente llamamos deleteUser() que borra todos los datos de Room y navegamos al LoginScreen limpiando todo el backstack."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Escenario 6: Recursos Nativos</h3>
+                    
+                    <div class="question">
+                        PROFESOR: "Explícame cómo implementaron la cámara"
+                    </div>
+                    
+                    <div class="answer">
+                        TÚ: "Implementamos cámara y galería para cambiar la foto de perfil. Usamos dos ActivityResultContracts: TakePicture para la cámara y GetContent para la galería.
+                        <br><br>
+                        Para los permisos usamos Accompanist Permissions. Antes de abrir la cámara verificamos si tenemos el permiso CAMERA. Si no lo tenemos, lo pedimos. Si el usuario lo niega, solo mostramos la opción de galería como fallback.
+                        <br><br>
+                        Cuando el usuario toma una foto, necesitamos un URI temporal donde guardarla. Usamos FileProvider que permite compartir archivos de forma segura entre apps. Creamos un archivo temporal en filesDir.
+                        <br><br>
+                        Una vez que tenemos la imagen, la copiamos permanentemente a filesDir con un nombre único usando timestamp. Guardamos la ruta en Room Database con updateProfileImage(). La UI observa el cambio en el StateFlow y automáticamente muestra la nueva foto con Coil."
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Escenario 7: Pregunta sobre Colaboración</h3>
+                    
+                    <div class="question">
+                        PROFESOR: "¿Cómo se distribuyeron el trabajo entre Vicente y Oscar?"
+                    </div>
+                    
+                    <div class="answer">
+                        TÚ: "Nos organizamos por capas. Oscar se encargó de toda la capa de datos - los modelos, Room Database, configuración de Retrofit, y la conexión con la API. También implementó RegisterScreen y la funcionalidad de cámara en ProfileScreen.
+                        <br><br>
+                        Yo (Vicente) me enfocé en la UI y navegación - configuré el proyecto base, creé el tema visual, implementé el sistema de navegación, LoginScreen con validaciones, y HomeScreen. También documenté todo con Swagger y creé el README.
+                        <br><br>
+                        Nos coordinamos bien porque mi trabajo dependía de lo que Oscar hiciera. Por ejemplo, no podía hacer LoginScreen hasta que él tuviera listo Retrofit y Room. Usamos Git con commits claros para no pisarnos el trabajo."
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHECKLIST FINAL -->
+            <section id="checklist">
+                <h2>✅ Checklist Final de Preparación</h2>
+
+                <div class="card">
+                    <h3>Conocimiento Técnico</h3>
+                    <ul class="checklist">
+                        <li>Puedo explicar qué hace la app en 30 segundos</li>
+                        <li>Entiendo el patrón MVVM y puedo explicarlo</li>
+                        <li>Sé qué es Room y para qué sirve</li>
+                        <li>Sé qué es Retrofit y cómo funciona</li>
+                        <li>Puedo explicar el flujo completo de login</li>
+                        <li>Entiendo cómo funcionan las validaciones en tiempo real</li>
+                        <li>Sé cómo funciona la persistencia de sesión</li>
+                        <li>Puedo explicar la implementación de cámara</li>
+                        <li>Entiendo qué es StateFlow y cómo se usa</li>
+                        <li>Sé qué son las corrutinas básicamente</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Manejo de Preguntas Trampa</h3>
+                    <ul class="checklist">
+                        <li>Sé que la API NO la creamos nosotros</li>
+                        <li>Sé explicar JWT sin mentir sobre implementación</li>
+                        <li>Puedo justificar por qué no usamos Repository pattern</li>
+                        <li>Sé explicar la diferencia entre lo documentado y la API real</li>
+                        <li>Puedo hablar honestamente sobre uso de recursos online</li>
+                        <li>Sé explicar por qué usamos KSP en vez de KAPT</li>
+                        <li>Conozco todos los problemas que tuvimos y sus soluciones</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Preparación Práctica</h3>
+                    <ul class="checklist">
+                        <li>Tengo el proyecto abierto y funcionando</li>
+                        <li>Sé dónde está cada archivo importante</li>
+                        <li>Puedo navegar rápido por el código</li>
+                        <li>Practiqué explicaciones en voz alta</li>
+                        <li>Coordiné respuestas con Oscar</li>
+                        <li>Leí el README completo</li>
+                        <li>Revisé API_DOCUMENTATION.md</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Actitud y Comunicación</h3>
+                    <ul class="checklist">
+                        <li>Estoy preparado para ser honesto</li>
+                        <li>No voy a memorizar, voy a entender</li>
+                        <li>Si no sé algo, lo admito profesionalmente</li>
+                        <li>Puedo mostrar el código mientras explico</li>
+                        <li>Hablo como estudiante, no como ingeniero senior</li>
+                        <li>Tengo ejemplos concretos preparados</li>
+                    </ul>
+                </div>
+
+                <div class="card success">
+                    <h3>🎯 Meta: 100/100</h3>
+                    <h4>Puntos a Favor:</h4>
+                    <ul>
+                        <li>✅ App completamente funcional</li>
+                        <li>✅ Todas las funcionalidades implementadas (menos animaciones)</li>
+                        <li>✅ API documentada profesionalmente con Swagger</li>
+                        <li>✅ Validaciones en tiempo real</li>
+                        <li>✅ Persistencia con Room bien implementada</li>
+                        <li>✅ Cámara funcionando con permisos</li>
+                        <li>✅ Código limpio y organizado</li>
+                        <li>✅ 12 commits bien distribuidos</li>
+                        <li>✅ README completo y realista</li>
+                        <li>✅ Problemas documentados (muy realista)</li>
+                    </ul>
+
+                    <h4>Punto en Contra:</h4>
+                    <ul>
+                        <li>⚠️ Faltan animaciones (menor, 2-3 puntos)</li>
+                    </ul>
+
+                    <p style="margin-top: 20px;"><strong>Calificación estimada: 97-100/100</strong></p>
+                </div>
+            </section>
+
+            <!-- TIPS FINALES -->
+            <section>
+                <h2>🚀 Tips Finales para el Día de la Defensa</h2>
+
+                <div class="card">
+                    <h3>Antes de Entrar</h3>
+                    <ul>
+                        <li>🔋 Carga completamente el laptop</li>
+<li>📱 Ten el emulador o dispositivo listo</li>
+                        <li>☕ Desayuna bien, no entres con hambre</li>
+                        <li>💧 Lleva agua</li>
+                        <li>📂 Abre Android Studio con el proyecto</li>
+                        <li>🔍 Ten abiertos los archivos principales</li>
+                        <li>📄 Ten el README visible en otra pestaña</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Durante la Defensa</h3>
+                    <ul>
+                        <li>🎯 Respira profundo antes de responder</li>
+                        <li>👂 Escucha completa la pregunta</li>
+                        <li>🤔 Si no entiendes, pide que repitan</li>
+                        <li>💻 Usa el código como apoyo visual</li>
+                        <li>🗣️ Habla claro y pausado</li>
+                        <li>👀 Mira al profesor mientras explicas</li>
+                        <li>✋ Si te bloqueas, di "déjame mostrarle en el código"</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Estrategias de Respuesta</h3>
+                    
+                    <h4>Si sabes la respuesta:</h4>
+                    <ol>
+                        <li>Da respuesta directa y concisa</li>
+                        <li>Si el profe parece querer más, elabora</li>
+                        <li>Usa ejemplos del proyecto</li>
+                    </ol>
+
+                    <h4>Si no estás seguro:</h4>
+                    <ol>
+                        <li>"Creo que es X, pero déjame verificarlo en el código"</li>
+                        <li>Abre el archivo relevante</li>
+                        <li>Explica basándote en lo que ves</li>
+                    </ol>
+
+                    <h4>Si no sabes:</h4>
+                    <ol>
+                        <li>"No recuerdo los detalles exactos en este momento"</li>
+                        <li>"Puedo buscarlo en la documentación"</li>
+                        <li>O: "Oscar manejó esa parte, ¿puedo consultarle?"</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>Frases Útiles</h3>
+                    
+                    <div class="tip">
+                        <strong>Para ganar tiempo mientras piensas:</strong><br>
+                        • "Buena pregunta, déjame explicarlo paso por paso..."<br>
+                        • "Hay varias partes en esto..."<br>
+                        • "Para entenderlo mejor, déjame mostrarte en el código..."<br>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Para conectar con experiencia real:</strong><br>
+                        • "De hecho, tuvimos un problema con esto..."<br>
+                        • "Esto fue interesante porque..."<br>
+                        • "Aprendimos que..."<br>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Para admitir limitaciones honestamente:</strong><br>
+                        • "No llegamos a implementar eso, pero si tuviéramos más tiempo..."<br>
+                        • "Esa sería una buena mejora futura..."<br>
+                        • "Priorizamos X sobre Y porque..."<br>
+                    </div>
+                </div>
+
+                <div class="card warning">
+                    <h3>⚠️ Errores Comunes a Evitar</h3>
+                    <ul>
+                        <li>❌ Decir "no sé" sin intentar razonar</li>
+                        <li>❌ Inventar respuestas técnicas complejas</li>
+                        <li>❌ Contradecir a Oscar</li>
+                        <li>❌ Sonar muy robótico o memorizado</li>
+                        <li>❌ Criticar tu propio código sin propósito</li>
+                        <li>❌ Decir "fue fácil" o minimizar el trabajo</li>
+                        <li>❌ Culpar a Oscar si algo no funciona</li>
+                        <li>❌ Hablar mal de las tecnologías usadas</li>
+                    </ul>
+                </div>
+
+                <div class="card success">
+                    <h3>✅ Cosas que Suman Puntos Extra</h3>
+                    <ul>
+                        <li>✨ Mencionar problemas reales que resolvieron</li>
+                        <li>✨ Demostrar la app funcionando en vivo</li>
+                        <li>✨ Explicar decisiones de diseño ("elegimos X porque Y")</li>
+                        <li>✨ Hablar de mejoras futuras con criterio</li>
+                        <li>✨ Mostrar conocimiento de best practices</li>
+                        <li>✨ Conectar lo aprendido con el curso</li>
+                    </ul>
+                </div>
+
+                <div class="card info">
+                    <h3>📊 Distribución del Tiempo (estimado)</h3>
+                    <ul>
+                        <li><strong>5 min:</strong> Presentación general de la app</li>
+                        <li><strong>10 min:</strong> Demo en vivo (mostrar funcionalidades)</li>
+                        <li><strong>15 min:</strong> Preguntas técnicas</li>
+                        <li><strong>5 min:</strong> Preguntas sobre trabajo en equipo</li>
+                        <li><strong>5 min:</strong> Cierre y preguntas finales</li>
+                    </ul>
+                    <p><strong>Total: ~40 minutos</strong></p>
+                </div>
+            </section>
+
+            <!-- RESUMEN RÁPIDO -->
+            <section>
+                <h2>⚡ Resumen Ultra-Rápido (Lee 5 minutos antes)</h2>
+
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">🎯 Lo MÁS Importante</h3>
+                    
+                    <h4 style="color: white; margin-top: 20px;">QUÉ ES LA APP:</h4>
+                    <p>"App Android de catálogo de libros con registro, login, perfil y cámara"</p>
+
+                    <h4 style="color: white; margin-top: 20px;">ARQUITECTURA:</h4>
+                    <p>MVVM: View (Compose) → ViewModel (lógica) → Model (Room + Retrofit)</p>
+
+                    <h4 style="color: white; margin-top: 20px;">TECNOLOGÍAS:</h4>
+                    <p>Kotlin + Compose + Room + Retrofit + Navigation + Coil + Accompanist</p>
+
+                    <h4 style="color: white; margin-top: 20px;">FLUJO LOGIN:</h4>
+                    <p>Usuario escribe → Validación real-time → API → Room → NavScreen</p>
+
+                    <h4 style="color: white; margin-top: 20px;">API:</h4>
+                    <p>Externa (Xano), NO la creamos. Solo nos conectamos con Retrofit.</p>
+
+                    <h4 style="color: white; margin-top: 20px;">JWT:</h4>
+                    <p>API lo genera, nosotros lo guardamos en Room y lo enviamos en headers.</p>
+
+                    <h4 style="color: white; margin-top: 20px;">ROOM:</h4>
+                    <p>Base de datos SQLite local para persistir sesión del usuario.</p>
+
+                    <h4 style="color: white; margin-top: 20px;">CÁMARA:</h4>
+                    <p>ActivityResultContracts + Accompanist Permissions + FileProvider</p>
+
+                    <h4 style="color: white; margin-top: 20px;">PROBLEMAS:</h4>
+                    <p>1) KAPT→KSP, 2) API devuelve user_id no user, 3) Password 8 chars mínimo</p>
+
+                    <h4 style="color: white; margin-top: 20px;">VICENTE HIZO:</h4>
+                    <p>UI, navegación, LoginScreen, HomeScreen, tema, documentación</p>
+
+                    <h4 style="color: white; margin-top: 20px;">OSCAR HIZO:</h4>
+                    <p>Modelos, Room, Retrofit, RegisterScreen, ProfileScreen con cámara</p>
+                </div>
+
+                <div class="card" style="background: #4CAF50; color: white; margin-top: 20px;">
+                    <h3 style="color: white;">🔥 Frases Clave para la Defensa</h3>
+                    <ul style="color: white;">
+                        <li><strong>"La API es externa, solo nos conectamos con Retrofit"</strong></li>
+                        <li><strong>"Usamos MVVM para separar responsabilidades"</strong></li>
+                        <li><strong>"Room persiste la sesión localmente"</strong></li>
+                        <li><strong>"Validaciones en tiempo real con StateFlow"</strong></li>
+                        <li><strong>"Tuvimos problemas con KAPT, cambiamos a KSP"</strong></li>
+                        <li><strong>"La API devuelve user_id, no objeto user completo"</strong></li>
+                        <li><strong>"FileProvider permite compartir archivos de forma segura"</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background: #f44336; color: white; margin-top: 20px;">
+                    <h3 style="color: white;">⚠️ NUNCA Digas Esto</h3>
+                    <ul style="color: white;">
+                        <li>❌ "Creamos la API en Node.js"</li>
+                        <li>❌ "Implementamos JWT con algoritmo HS256"</li>
+                        <li>❌ "No sé qué es MVVM"</li>
+                        <li>❌ "ChatGPT lo hizo todo"</li>
+                        <li>❌ "Todo desde cero sin ayuda"</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- MENSAJE DE MOTIVACIÓN -->
+            <section>
+                <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-align: center; padding: 40px;">
+                    <h2 style="color: white; font-size: 2.5em;">🏆 ¡Estás Listo!</h2>
+                    <p style="font-size: 1.3em; margin: 20px 0;">
+                        Has construido una app completa y funcional.<br>
+                        Conoces el código porque lo hiciste tú.<br>
+                        Los problemas que tuvieron son REALES y eso es valioso.<br>
+                        La documentación está profesional.<br>
+                    </p>
+                    <p style="font-size: 1.5em; margin: 30px 0;">
+                        <strong>Confía en lo que sabes.</strong><br>
+                        <strong>Sé honesto.</strong><br>
+                        <strong>Usa el código como apoyo.</strong>
+                    </p>
+                    <p style="font-size: 2em; margin-top: 30px;">
+                        🎯 Meta: 97-100/100
+                    </p>
+                </div>
+            </section>
+
+            <!-- CONTACTOS DE EMERGENCIA -->
+            <section>
+                <h2>📞 Plan B</h2>
+                
+                <div class="card warning">
+                    <h3>Si algo sale mal...</h3>
+                    
+                    <h4>📱 La app no compila:</h4>
+                    <ul>
+                        <li>1. Sync Gradle</li>
+                        <li>2. Clean Project</li>
+                        <li>3. Rebuild Project</li>
+                        <li>4. Si nada funciona: muestra el código y explica</li>
+                    </ul>
+
+                    <h4>🌐 La API no responde:</h4>
+                    <ul>
+                        <li>Explica: "La API es externa y puede tener intermitencias"</li>
+                        <li>Muestra la documentación de la API</li>
+                        <li>Muestra los logs de pruebas exitosas anteriores</li>
+                        <li>Explica que la persistencia local funciona sin API</li>
+                    </ul>
+
+                    <h4>😰 Te bloqueas mentalmente:</h4>
+                    <ul>
+                        <li>Respira 3 segundos</li>
+                        <li>Pide repetir la pregunta</li>
+                        <li>Di: "Déjame mostrarte en el código"</li>
+                        <li>Navega al archivo y explica leyendo</li>
+                    </ul>
+
+                    <h4>❓ Pregunta que no esperabas:</h4>
+                    <ul>
+                        <li>"Interesante pregunta, déjame pensarlo..."</li>
+                        <li>Divide la pregunta en partes</li>
+                        <li>Responde lo que sepas</li>
+                        <li>Admite honestamente lo que no sabes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PRÁCTICA FINAL -->
+            <section>
+                <h2>🎯 Ejercicio Final de Práctica</h2>
+                
+                <div class="card info">
+                    <h3>Hazlo AHORA (en voz alta):</h3>
+                    
+                    <ol style="font-size: 1.1em; line-height: 2;">
+                        <li>Explica qué hace la app en 30 segundos ⏱️</li>
+                        <li>Explica el flujo de login paso por paso 🔐</li>
+                        <li>Explica qué es MVVM con ejemplo del proyecto 🏗️</li>
+                        <li>Explica un problema que tuvieron y cómo lo resolvieron 🔧</li>
+                        <li>Responde: "¿Ustedes crearon la API?" ⚠️</li>
+                    </ol>
+
+                    <p style="margin-top: 30px; font-size: 1.2em;">
+                        <strong>Si puedes hacer estos 5 ejercicios fluidamente, estás listo. 💪</strong>
+                    </p>
+                </div>
+
+                <div class="card success">
+                    <h3>Checklist de Último Minuto ✅</h3>
+                    <ul class="checklist" style="font-size: 1.1em;">
+                        <li>Laptop cargado</li>
+                        <li>Proyecto abierto en Android Studio</li>
+                        <li>App funcionando en emulador/dispositivo</li>
+                        <li>README.md abierto en navegador</li>
+                        <li>API_DOCUMENTATION.md visible</li>
+                        <li>Archivos principales identificados</li>
+                        <li>Respuestas coordinadas con Oscar</li>
+                        <li>Respiración profunda ✨</li>
+                        <li>Actitud positiva 😊</li>
+                        <li>Confianza en tu trabajo 💪</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- RECORDATORIO PARA OSCAR -->
+            <section>
+                <h2>📨 Recordatorio para Oscar</h2>
+                
+                <div class="card oscar">
+                    <h3>Oscar debe estudiar:</h3>
+                    <ul>
+                        <li>✅ COMMIT 1: Modelos de datos (data classes)</li>
+                        <li>✅ COMMIT 2: Room Database (Entity, DAO, Database)</li>
+                        <li>✅ COMMIT 3: Retrofit (BooksyApi, RetrofitClient)</li>
+                        <li>✅ COMMIT 9: RegisterScreen con validaciones</li>
+                        <li>✅ COMMIT 10: ProfileScreen con cámara</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">Preguntas que le pueden hacer a Oscar:</h4>
+                    <ul>
+                        <li>"¿Qué es Room y para qué sirve?"</li>
+                        <li>"¿Cómo funciona Retrofit?"</li>
+                        <li>"¿Por qué data classes?"</li>
+                        <li>"Explica el flujo de registro"</li>
+                        <li>"¿Cómo implementaste la cámara?"</li>
+                        <li>"¿Qué es un DAO?"</li>
+                        <li>"¿Para qué sirve FileProvider?"</li>
+                    </ul>
+
+                    <div class="warning" style="margin-top: 20px;">
+                        <strong>⚠️ Oscar debe saber:</strong><br>
+                        • La API NO la creamos<br>
+                        • JWT lo genera la API, solo lo guardamos<br>
+                        • Usamos KSP no KAPT<br>
+                        • La API devuelve user_id no objeto user<br>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CIERRE MOTIVACIONAL -->
+            <section>
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px; text-align: center;">
+                    <h2 style="color: white; font-size: 3em; margin-bottom: 20px;">
+                        🚀 ¡A POR EL 100! 🚀
+                    </h2>
+                    
+                    <p style="font-size: 1.5em; line-height: 1.8; margin: 30px 0;">
+                        Has trabajado duro.<br>
+                        Tu proyecto está completo.<br>
+                        Tu documentación es profesional.<br>
+                        Conoces tu código.<br>
+                    </p>
+
+                    <p style="font-size: 2em; margin: 40px 0;">
+                        <strong>Ahora solo falta confiar en ti. 💪</strong>
+                    </p>
+
+                    <p style="font-size: 1.3em; margin: 30px 0;">
+                        Respira.<br>
+                        Sé honesto.<br>
+                        Usa el código.<br>
+                        Confía en lo que sabes.<br>
+                    </p>
+
+                    <p style="font-size: 2.5em; margin-top: 50px; font-weight: bold;">
+                        🎯 ÉXITO EN LA DEFENSA 🎯
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p style="font-size: 1.2em; margin-bottom: 10px;">
+                <strong>Booksy - Proyecto de Desarrollo Móvil 2025</strong>
+            </p>
+            <p>Vicente & Oscar</p>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                Esta guía fue creada específicamente para ayudarte a preparar tu defensa.<br>
+                Lee, practica en voz alta y confía en tu trabajo.
+            </p>
+            <button class="print-button" onclick="window.print()">
+                🖨️ Imprimir esta guía
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scroll para navegación
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Animación al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.5s';
+            observer.observe(section);
+        });
+
+        // Alert motivacional al cargar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                console.log('🚀 ¡Guía de estudio cargada! ¡A estudiar se ha dicho!');
+                console.log('💪 Tip: Lee en voz alta y practica las explicaciones');
+                console.log('🎯 Meta: 100/100');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
